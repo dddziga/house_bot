@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  sqlite3:
+    image: nouchka/sqlite3:latest
+    container_name: db
+    stdin_open: true
+    tty: true
+    volumes:
+      - db:/root/db/
+
+  app:
+    image: 'carbot:latest'
+    container_name: carbot
+    build:
+      context: .
+    volumes:
+      - db:/root/db/titova29.db
+    depends_on:
+      - sqlite3
+
+volumes:
+  db: null

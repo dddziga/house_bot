@@ -7,7 +7,7 @@ class BotDB:
         self.cursor = self.conn.cursor()
 
     def avto_exists(self, avto):
-        sql = "SELECT '+' || Phone FROM nomera WHERE avto=:avto"
+        sql = "SELECT '+' || Phone FROM nomera WHERE avto LIKE:avto"
         result = self.cursor.execute(sql,{'avto':avto})
         return result.fetchall()
 

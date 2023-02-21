@@ -1,6 +1,9 @@
 import nomera;
-
+import re
 from nomera import BotDB
-BotDB = BotDB('titova29.db')
 
-print (list, BotDB.avto_exists('С091ТР'))
+if re.match(r'[А-Я]\d{3}[А-Я]{2}\d.+', 'С091ТР154'):
+    print('Моргенштерн!')
+
+print (re.match(r'[А-Я]\d{3}[А-Я]{2}\d.+', 'С091ТР154'))
+
